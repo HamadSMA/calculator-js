@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #a2b167;
+  height: 100vh;
+}
+
+.calculator {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 350px;
+}
+
+.screen {
+  width: 320px;
+  display: flex;
+  justify-content: end;
+}
+
+.calculator a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(84, 108, 128);
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+}
