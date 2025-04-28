@@ -1,20 +1,28 @@
-function add(a, b) {
-  return a + b;
+function add(num1, num2) {
+  return num1 + num2;
 }
 
-function subtract(a, b) {
-  return a - b;
+function subtract(num1, num2) {
+  return num1 - num2;
 }
 
-function multiply(a, b) {
-  return a * b;
+function multiply(num1, num2) {
+  return num1 * num2;
 }
 
-function divide(a, b) {
-  return a / b;
+function divide(num1, num2) {
+  return num1 / num2;
 }
 
-console.log(add(2, 2));
-console.log(subtract(2, 2));
-console.log(multiply(2, 2));
-console.log(divide(2, 2));
+let firstNumber;
+let secondNumber;
+let operator;
+
+function operate(num1, num2, operator) {
+  if (operator === "+") return add(num1, num2);
+  if (operator === "-") return subtract(num1, num2);
+  if (operator === "*") return multiply(num1, num2);
+  if (operator === "/") return divide(num1, num2);
+}
+
+console.log(operate(2, 2, "/"));
