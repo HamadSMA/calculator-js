@@ -1,3 +1,16 @@
+let firstNumber;
+let secondNumber;
+let operator;
+
+function display() {
+  let btns = document.querySelectorAll(".number a");
+  btns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+  });
+}
+
 function add(num1, num2) {
   return num1 + num2;
 }
@@ -14,10 +27,6 @@ function divide(num1, num2) {
   return num1 / num2;
 }
 
-let firstNumber;
-let secondNumber;
-let operator;
-
 function operate(num1, num2, operator) {
   if (operator === "+") return add(num1, num2);
   if (operator === "-") return subtract(num1, num2);
@@ -25,4 +34,4 @@ function operate(num1, num2, operator) {
   if (operator === "/") return divide(num1, num2);
 }
 
-console.log(operate(2, 2, "/"));
+display();
