@@ -19,6 +19,7 @@ body {
   width: 360px;
   padding: 20px 40px;
   border-radius: 4px;
+  border: 2px solid rgb(85, 85, 85);
 }
 
 .screen {
@@ -27,7 +28,9 @@ body {
   justify-content: end;
   align-items: end;
   padding: 10px;
-  border: 1px solid black;
+  color: rgb(71, 71, 71);
+  font-size: 30px;
+  border: 2px solid rgb(95, 93, 93);
   height: 50px;
   width: 350px;
   border-radius: 4px;
@@ -38,11 +41,80 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(233, 238, 241);
   min-width: 80px;
   height: 50px;
   border-radius: 4px;
   border: 1px solid grey;
+}
+
+.utility a:link,
+.utility a:visited {
+  background-color: #eee125;
+  text-decoration: none;
+  color: #4b4545;
+  font-size: 20px;
+  box-shadow: 4px 7px 4px -4px #cecece;
+}
+.utility a:hover {
+  background-color: #ede682;
+}
+.utility a:active {
+  transform: translateY(1px);
+  box-shadow: 4px 5px 4px -4px #cecece;
+}
+
+.operator a:link,
+.operator a:visited {
+  background-color: #ee9d25;
+  text-decoration: none;
+  color: #4b4545;
+  font-size: 20px;
+  box-shadow: 4px 7px 4px -4px #cecece;
+}
+
+.operator a:hover {
+  background-color: #ecb159;
+}
+
+.operator a:active {
+  transform: translateY(1px);
+  box-shadow: 4px 5px 4px -4px #cecece;
+}
+
+.equals a:link,
+.equals a:visited {
+  background-color: #58be39;
+  text-decoration: none;
+  color: #4b4545;
+  font-size: 20px;
+  box-shadow: 4px 7px 4px -4px #cecece;
+}
+
+.equals a:hover {
+  background-color: #78c361;
+}
+
+.equals a:active {
+  transform: translateY(1px);
+  box-shadow: 4px 5px 4px -4px #cecece;
+}
+
+.number a:link,
+.number a:visited {
+  background-color: #6796b1;
+  text-decoration: none;
+  color: #4b4545;
+  font-size: 20px;
+  box-shadow: 4px 7px 4px -4px #cecece;
+}
+
+.number a:hover {
+  background-color: #85a6ba;
+}
+
+.number a:active {
+  transform: translateY(1px);
+  box-shadow: 4px 5px 4px -4px #cecece;
 }
 
 .equals {
