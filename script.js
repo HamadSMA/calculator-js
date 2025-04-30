@@ -4,15 +4,30 @@ let operator;
 
 function display() {
   let result = document.querySelector(".screen");
-  let btns = document.querySelectorAll(".number a");
+  let btns = document.querySelectorAll(".btn");
   let number = "";
 
   btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       let val = btn.textContent;
-      number += val;
-      result.textContent = number;
+      let signs = ["-", "+", "/", "x", "=", "C", "AC", "%"];
+
+      if (!firstNumber && signs.includes(val)) {
+        firstNumber = Number(number);
+        number = "0";
+      }
+      if (firstNumber && val === "=") {
+        secondNumber = Number(number);
+        //Continue work here
+      }
+
+      if (signs.includes(val)) {
+        number = number;
+      } else {
+        number += val;
+        result.textContent = number;
+      }
     });
   });
 }
@@ -41,3 +56,4 @@ function operate(num1, num2, operator) {
 }
 
 display();
+console.log(firstNumber);
