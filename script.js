@@ -10,52 +10,9 @@ function display() {
   btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
-      switch (btn.textContent) {
-        case "0":
-          number += "0";
-          result.textContent = number;
-          break;
-        case ".":
-          number += ".";
-          result.textContent = number;
-        case "1":
-          number += "1";
-          result.textContent = number;
-          break;
-        case "2":
-          number += "2";
-          result.textContent = number;
-          break;
-        case "3":
-          number += "3";
-          result.textContent = number;
-          break;
-        case "4":
-          number += "4";
-          result.textContent = number;
-          break;
-        case "5":
-          number += "5";
-          result.textContent = number;
-          break;
-        case "6":
-          number += "6";
-          result.textContent = number;
-          break;
-        case "7":
-          number += "7";
-          result.textContent = number;
-          break;
-        case "8":
-          number += "8";
-          result.textContent = number;
-          break;
-        case "9":
-          number += "9";
-          result.textContent = number;
-          break;
-      }
-      console.log(number);
+      let val = btn.textContent;
+      number += val;
+      result.textContent = number;
     });
   });
 }
