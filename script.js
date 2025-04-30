@@ -6,7 +6,7 @@ function display() {
   let screen = document.querySelector(".screen");
   let btns = document.querySelectorAll(".btn");
   let number = "";
-  let result = "";
+  let resultArray = [];
 
   btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -15,16 +15,16 @@ function display() {
       let symbols = ["-", "+", "/", "x", "=", "C", "AC", "%"];
       let operators = ["-", "+", "/", "x"];
 
-      if (!firstNumber && symbols.includes(val)) {
+      if (!firstNumber && operators.includes(val)) {
         firstNumber = Number(number);
         number = "";
       }
       if (firstNumber && val === "=") {
         secondNumber = Number(number);
         number = "";
-        result = operate(firstNumber, secondNumber, operator);
+        result = operate(firstNumber, secondNumber, operator).toFixed(2);
         screen.textContent = result;
-        firstNumber = 0;
+        firstNumber = result;
         secondNumber = 0;
         operator = "";
         //Continue work here
@@ -57,6 +57,9 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+  if (num2 === 0) {
+    return "👌😂";
+  }
   return num1 / num2;
 }
 
