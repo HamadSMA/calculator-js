@@ -3,30 +3,42 @@ let secondNumber;
 let operator;
 
 function display() {
-  let result = document.querySelector(".screen");
+  let screen = document.querySelector(".screen");
   let btns = document.querySelectorAll(".btn");
   let number = "";
+  let result = "";
 
   btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
       let val = btn.textContent;
-      let signs = ["-", "+", "/", "x", "=", "C", "AC", "%"];
+      let symbols = ["-", "+", "/", "x", "=", "C", "AC", "%"];
+      let operators = ["-", "+", "/", "x"];
 
-      if (!firstNumber && signs.includes(val)) {
+      if (!firstNumber && symbols.includes(val)) {
         firstNumber = Number(number);
-        number = "0";
+        number = "";
       }
       if (firstNumber && val === "=") {
         secondNumber = Number(number);
+        number = "";
+        result = operate(firstNumber, secondNumber, operator);
+        screen.textContent = result;
+        firstNumber = 0;
+        secondNumber = 0;
+        operator = "";
         //Continue work here
       }
 
-      if (signs.includes(val)) {
+      if (operators.includes(val)) {
+        operator = val;
+      }
+
+      if (symbols.includes(val)) {
         number = number;
       } else {
         number += val;
-        result.textContent = number;
+        screen.textContent = number;
       }
     });
   });
@@ -51,9 +63,8 @@ function divide(num1, num2) {
 function operate(num1, num2, operator) {
   if (operator === "+") return add(num1, num2);
   if (operator === "-") return subtract(num1, num2);
-  if (operator === "*") return multiply(num1, num2);
+  if (operator === "x") return multiply(num1, num2);
   if (operator === "/") return divide(num1, num2);
 }
 
 display();
-console.log(firstNumber);
