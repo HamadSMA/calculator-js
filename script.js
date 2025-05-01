@@ -6,7 +6,8 @@ function display() {
   let screen = document.querySelector(".screen");
   let btns = document.querySelectorAll(".btn");
   let number = "";
-  let resultArray = [];
+  let result;
+  let roundedResult;
 
   btns.forEach((btn) => {
     btn.addEventListener("click", (e) => {
@@ -19,22 +20,31 @@ function display() {
         firstNumber = Number(number);
         number = "";
       }
+
+      // Issue with divide by zero and rounding numbers: line 24 - 41
       if (firstNumber && val === "=") {
         secondNumber = Number(number);
         number = "";
-        result = operate(firstNumber, secondNumber, operator).toFixed(2);
-        screen.textContent = result;
-        firstNumber = result;
+        result = operate(firstNumber, secondNumber, operator);
+
+        if (typeof result !== "number") {
+          roundedResult = result;
+        } else {
+          roundedResult = Number.isInteger(result)
+            ? result
+            : parseFloat(result.toFixed(2));
+        }
+        screen.textContent = roundedResult;
+        firstNumber = roundedResult;
         secondNumber = 0;
         operator = "";
-        //Continue work here
       }
 
       if (operators.includes(val)) {
         operator = val;
       }
 
-      if (symbols.includes(val)) {
+      if (symbols.includes(val) || number.length === 9) {
         number = number;
       } else {
         number += val;
