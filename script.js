@@ -15,13 +15,27 @@ function display() {
       let val = btn.textContent;
       let symbols = ["-", "+", "/", "x", "=", "C", "AC", "%"];
       let operators = ["-", "+", "/", "x"];
-
       if (!firstNumber && operators.includes(val)) {
         firstNumber = Number(number);
         number = "";
       }
 
-      // Issue with divide by zero and rounding numbers: line 24 - 41
+      if (!firstNumber && !secondNumber && val === "C") {
+        number = "";
+        screen.textContent = 0;
+      }
+
+      if (val === "C") {
+        number = "";
+        screen.textContent = 0;
+      }
+
+      if (val === "AC") {
+        number = "";
+        screen.textContent = 0;
+        firstNumber = 0;
+        secondNumber = 0;
+      }
       if (firstNumber && val === "=") {
         secondNumber = Number(number);
         number = "";
